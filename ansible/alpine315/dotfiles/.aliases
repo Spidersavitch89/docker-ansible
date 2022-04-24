@@ -1,0 +1,9 @@
+alias test="echo hello world"
+alias nano="nano -cilmALET4"
+alias cmd-runner="aplaybook -i etc/ansible/inventories/gia.ini etc/ansible/playbooks/cmd-runner.yml"
+alias list="ls -lart"
+alias ssha="eval $(ssh-agent) && ssh-add"
+alias code-go='code -a .'
+alias dtfpush='dtf push origin master'
+alias tr='tree -shD --du'
+alias c='clear'

@@ -1,0 +1,22 @@
+---
+- hosts: all
+  #become: True
+  roles:
+    - {
+        role: geerlingguy.ntp,
+        ntp_manage_config: true,
+        ntp_package: chrony,
+        ntp_daemon: chronyd,
+        ntp_config_file: /etc/chrony/chrony.conf,
+        ntp_timezone: America/New_York,
+        ntp_servers: [
+          10.222.1.2 prefer,
+          pool.ntp.org,
+          time-a-g.nist.gov
+        ]
+      }
+    #- {
+    #    role: lae.proxmox,
+    #    pve_group: all,
+    #    pve_reboot_on_kernel_update: true
+    #  }

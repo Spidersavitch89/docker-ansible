@@ -1,0 +1,20 @@
+version: "3.9"
+services:
+  ansible:
+    restart: unless-stopped
+    build: . # Builds from dockerfile in same dir.
+    image: ansible # Names image
+    container_name: ansible # Names container
+    hostname: ansible # Set shell hostname
+    working_dir: /root
+    entrypoint: /bin/zsh # Sets user shell
+    tty: true # Keeps container alive and running
+    volumes:
+      - ./dotfiles/.aliases:/root/.aliases
+      - ./dotfiles/.bashrc:/root/.bashrc
+      - ./dotfiles/.zshrc:/root/.zshrc
+      - ./ansible:/root/ansible
+      - ./dotfiles/yaml.nanorc:/usr/share/nano/yaml.nanorc
+      - ./dotfiles/.p10k.zsh:/root/.p10k.zsh
+      - ./dotfiles/.ssh:/root/.ssh
+

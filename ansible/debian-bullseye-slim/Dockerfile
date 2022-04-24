@@ -1,7 +1,7 @@
 FROM debian:bullseye-slim
 
-ARG ANSIBLE_VERSION_ARG "2.9.27"
-ENV ANSIBLE_VERSION ${ANSIBLE_VERSION_ARG}
+#ARG ANSIBLE_VERSION_ARG "2.9.27"
+#ENV ANSIBLE_VERSION ${ANSIBLE_VERSION_ARG}
 
 # Labels.
 LABEL maintainer="will@willhallonline.co.uk" \
@@ -21,7 +21,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     apt-get clean
     
 RUN pip3 install --upgrade pip cffi && \
-    pip install ansible==${ANSIBLE_VERSION} && \
+    pip install ansible=="2.9.27" && \
     pip install mitogen ansible-lint jmespath && \
     pip install --upgrade pywinrm && \
     rm -rf /root/.cache/pip
